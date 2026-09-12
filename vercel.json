@@ -30,7 +30,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!robots\\.txt|sitemap\\.xml|feed\\.xml|llms\\.txt|og-image\\.svg|favicon\\.svg|google.*\\.html|assets/|_vercel/).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
