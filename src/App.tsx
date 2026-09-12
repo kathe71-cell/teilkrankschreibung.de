@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import StickyBottomBar from './components/StickyBottomBar';
 import VercelAnalytics from './components/VercelAnalytics';
 
@@ -37,6 +38,7 @@ function Layout() {
         </Routes>
       </div>
       {!isEmbed && <Footer />}
+      {!isEmbed && <ScrollToTop />}
       {!isEmbed && <StickyBottomBar />}
     </div>
   );
