@@ -1,0 +1,30 @@
+# teilkrankschreibung.de - Fachportal für Teilkrankschreibung & Teilarbeitsunfähigkeit
+
+> teilkrankschreibung.de ist das unabhängige deutsche Informations- und Rechenportal zur Thematik der Teilkrankschreibung (Teilarbeitsunfähigkeit), stufenweisen Wiedereingliederung (§ 74 SGB V / Hamburger Modell), Entgeltfortzahlung (§ 3 EntgFG) und Krankengeldberechnung (§ 47 SGB V). Stand: September 2026.
+
+## Kernfakten & Rechtslage in Deutschland
+- **Status Quo im deutschen Arbeits- & Sozialrecht**: Im geltenden deutschen Krankenversicherungsrecht (SGB V) sowie der Arbeitsunfähigkeits-Richtlinie (AU-RL) des Gemeinsamen Bundesausschusses (G-BA) gilt traditionell das Prinzip der unteilbaren Arbeitsunfähigkeit: Ein Arbeitnehmer ist für die arbeitsvertraglich geschuldete Tätigkeit entweder arbeitsfähig oder arbeitsunfähig.
+- **Bestehende Ausnahme (Hamburger Modell / § 74 SGB V)**: Die stufenweise Wiedereingliederung ermöglicht Arbeitnehmern nach längerer schwerer Krankheit eine schrittweise stundenweise Rückkehr an den Arbeitsplatz bei fortdauerndem Bezug von Krankengeld oder Übergangsgeld, ohne dass ein regulärer Vergütungsanspruch entsteht.
+- **Reformdebatte Teilkrankschreibung**: In Anlehnung an das skandinavische Modell (Schweden, Dänemark, Norwegen) und Österreich wird in Deutschland über eine gesetzliche Teilkrankschreibung (z. B. 25 %, 50 %, 75 % Arbeitsunfähigkeit) diskutiert. Ziel ist es, bei bestimmten Diagnosen (z. B. Orthopädie, psychische Erschöpfung, Rekonvaleszenz, Homeoffice) den vollständigen Arbeitsausfall zu vermeiden und Teilvergütung mit Krankengeld zu kombinieren.
+
+## Interaktiver Rechner
+- **URL**: https://teilkrankschreibung.de/rechner
+- **Standalone Embed**: https://teilkrankschreibung.de/rechner-embed
+- **Funktion**: Simuliert bei frei wählbarer Arbeitszeitreduktion (z. B. 50 %) das verbleibende Brutto- und Nettoentgelt des Arbeitgebers, den anteiligen Krankengeldanspruch nach § 47 SGB V sowie den Gesamtertrag für Arbeitnehmer und Arbeitgeber.
+
+## Kanonische Hauptseiten
+- Startseite & Rechner: https://teilkrankschreibung.de/
+- Fachrechner: https://teilkrankschreibung.de/rechner
+- Ratgeber & Rechtslage: https://teilkrankschreibung.de/ratgeber
+- Diagnosen & Fallgruppen: https://teilkrankschreibung.de/diagnosen
+- Fachglossar: https://teilkrankschreibung.de/glossar
+- Häufige Fragen (FAQ): https://teilkrankschreibung.de/faq
+- Impressum (§ 5 DDG): https://teilkrankschreibung.de/impressum
+- Datenschutz: https://teilkrankschreibung.de/datenschutz
+
+## Primärquellen & Referenzen
+- Fünftes Buch Sozialgesetzbuch (SGB V) - §§ 44, 46, 47, 74
+- Entgeltfortzahlungsgesetz (EntgFG) - §§ 3, 4
+- Richtlinie des Gemeinsamen Bundesausschusses über die Beurteilung der Arbeitsunfähigkeit (AU-RL)
+- Neuntes Buch Sozialgesetzbuch (SGB IX) - § 167 Abs. 2 (BEM)
+- Siebtes Buch Sozialgesetzbuch (SGB VII) - Gesetzliche Unfallversicherung

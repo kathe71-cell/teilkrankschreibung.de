@@ -1,0 +1,37 @@
+{
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/rechner-embed",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors *"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "ALLOWALL"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!robots\\.txt|sitemap\\.xml|feed\\.xml|llms\\.txt|og-image\\.svg|favicon\\.svg|google.*\\.html|assets/|_vercel/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

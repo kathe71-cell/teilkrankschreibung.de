@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>teilkrankschreibung.de - Fachportal &amp; Rechner</title>
+    <link>https://teilkrankschreibung.de/</link>
+    <description>Aktuelle Fachinformationen, Gesetzesgrundlagen, Berechnungsmodelle und Ratgeber zur Teilkrankschreibung in Deutschland.</description>
+    <language>de-de</language>
+    <lastBuildDate>Sat, 12 Sep 2026 10:00:00 +0200</lastBuildDate>
+    <atom:link href="https://teilkrankschreibung.de/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Teilkrankschreibungs-Rechner: Simulation von Teilzeitentgelt und Krankengeld</title>
+      <link>https://teilkrankschreibung.de/rechner</link>
+      <description>Interaktive Berechnung des verbleibenden Arbeitseinkommens und Krankengeldanteils bei reduzierter Arbeitsfähigkeit.</description>
+      <pubDate>Sat, 12 Sep 2026 09:00:00 +0200</pubDate>
+      <guid>https://teilkrankschreibung.de/rechner</guid>
+    </item>
+    <item>
+      <title>Stufenweise Wiedereingliederung (§ 74 SGB V): Das Hamburger Modell im Detail</title>
+      <link>https://teilkrankschreibung.de/ratgeber#hamburger-modell</link>
+      <description>Rechtsanspruch, Stufenplan, Zustimmung des Arbeitgebers und Versicherungsschutz bei der stufenweisen Rückkehr.</description>
+      <pubDate>Sat, 12 Sep 2026 08:30:00 +0200</pubDate>
+      <guid>https://teilkrankschreibung.de/ratgeber#hamburger-modell</guid>
+    </item>
+    <item>
+      <title>Reformdebatte 2024–2026: Kommt die gesetzliche Teilarbeitsunfähigkeit?</title>
+      <link>https://teilkrankschreibung.de/ratgeber#reformdebatte</link>
+      <description>Aktueller Stand der Vorschläge von Bundesärztekammer, Sachverständigenrat und Gesetzgeber.</description>
+      <pubDate>Fri, 11 Sep 2026 14:00:00 +0200</pubDate>
+      <guid>https://teilkrankschreibung.de/ratgeber#reformdebatte</guid>
+    </item>
+    <item>
+      <title>Diagnosen-Kompass: Indikationen für Teil-AU nach ICD-10</title>
+      <link>https://teilkrankschreibung.de/diagnosen</link>
+      <description>Orthopädische, psychosomatische und chronische Krankheitsbilder im Kontext reduzierter Belastbarkeit.</description>
+      <pubDate>Thu, 10 Sep 2026 11:15:00 +0200</pubDate>
+      <guid>https://teilkrankschreibung.de/diagnosen</guid>
+    </item>
+  </channel>
+</rss>
