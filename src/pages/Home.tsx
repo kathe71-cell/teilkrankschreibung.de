@@ -30,9 +30,6 @@ export default function Home() {
               <Scale className="w-3.5 h-3.5" />
               SGB V · EntgFG · AU-Richtlinie 2026
             </span>
-            <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200">
-              Unabhängiges deutsches Fachportal
-            </span>
           </div>
 
           {/* Display Headline */}
