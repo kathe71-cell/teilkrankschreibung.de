@@ -3,6 +3,7 @@ import { Search } from 'lucide-react';
 import { GLOSSAR_DATA } from '../data/glossar';
 import TrustBox from '../components/TrustBox';
 import CitationBox from '../components/CitationBox';
+import SeoHead from '../components/SeoHead';
 
 export default function GlossarPage() {
   const [search, setSearch] = useState('');
@@ -26,6 +27,11 @@ export default function GlossarPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 py-10">
+      <SeoHead 
+        title="Fachglossar Teilkrankschreibung: Arbeitsrecht & Medizin"
+        description="Definitionen, Fachbegriffe und Rechtsbegriffe rund um die Teilarbeitsunfähigkeit und stufenweise Wiedereingliederung."
+        path="/glossar"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="text-xs text-slate-500 mb-6 flex items-center gap-2">

@@ -48,8 +48,6 @@ export default function PositionZeroBox() {
           Zitierfähige Normbasis: SGB V, EntgFG, AU-RL
         </span>
         <span>•</span>
-        <span>Länge: 52 Wörter (Position-0 Snippet optimiert)</span>
-        <span>•</span>
         <span>Stand: September 2026</span>
       </div>
     </section>

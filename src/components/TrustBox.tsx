@@ -11,15 +11,15 @@ export default function TrustBox() {
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
-                E-E-A-T Geprüft
+                Fachredaktion
               </span>
               <span className="text-xs font-semibold text-slate-500">Stand: September 2026</span>
             </div>
             <h3 className="text-lg font-bold text-slate-900 mt-1">
-              Fachredaktion teilkrankschreibung.de
+              teilkrankschreibung.de
             </h3>
             <p className="text-xs text-slate-600 mt-0.5">
-              Juristisch und sozialversicherungsrechtlich geprüfte Fachinformationen zur Teilarbeitsunfähigkeit.
+              Informationen zur Teilarbeitsunfähigkeit auf Basis von SGB V und EntgFG.
             </p>
           </div>
         </div>
@@ -32,10 +32,6 @@ export default function TrustBox() {
           <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 font-medium shadow-2xs">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
             Unabhängiges Portal
-          </span>
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 font-medium shadow-2xs">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-            100% DSGVO-konform
           </span>
         </div>
       </div>

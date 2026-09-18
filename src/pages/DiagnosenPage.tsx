@@ -3,6 +3,7 @@ import { Search, Activity, Check, Filter } from 'lucide-react';
 import { DIAGNOSEN_DATA } from '../data/diagnosen';
 import TrustBox from '../components/TrustBox';
 import CitationBox from '../components/CitationBox';
+import SeoHead from '../components/SeoHead';
 
 export default function DiagnosenPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,6 +27,11 @@ export default function DiagnosenPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 py-10">
+      <SeoHead 
+        title="ICD-10 Diagnosen-Kompass für Teilarbeitsunfähigkeit"
+        description="Typische Diagnosen und Indikationen für stufenweise Wiedereingliederung und reduzierte Arbeitsbelastung."
+        path="/diagnosen"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="text-xs text-slate-500 mb-6 flex items-center gap-2">

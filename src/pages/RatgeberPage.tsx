@@ -3,6 +3,7 @@ import { CheckCircle2, Bookmark, Clock } from 'lucide-react';
 import { RATGEBER_ARTICLES } from '../data/ratgeber';
 import TrustBox from '../components/TrustBox';
 import CitationBox from '../components/CitationBox';
+import SeoHead from '../components/SeoHead';
 
 export default function RatgeberPage() {
   const [activeSlug, setActiveSlug] = useState<string>(RATGEBER_ARTICLES[0].slug);
@@ -11,6 +12,11 @@ export default function RatgeberPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 py-10">
+      <SeoHead 
+        title="Ratgeber Teilkrankschreibung: Arbeitsrecht & Sozialrecht"
+        description="Detaillierte juristische Auswertungen zu Teilarbeitsunfähigkeit, stufenweiser Wiedereingliederung und Schutzvorschriften."
+        path="/ratgeber"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="text-xs text-slate-500 mb-6 flex items-center gap-2">

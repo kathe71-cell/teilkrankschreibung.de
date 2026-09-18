@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import TrustBox from '../components/TrustBox';
 import CitationBox from '../components/CitationBox';
+import SeoHead from '../components/SeoHead';
 
 interface FaqItem {
   q: string;
@@ -67,6 +68,11 @@ export default function FaqPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 py-10">
+      <SeoHead 
+        title="FAQ zur Teilkrankschreibung: Häufige rechtliche Fragen"
+        description="Antworten auf die wichtigsten juristischen, finanziellen und arbeitsrechtlichen Fragen zur Teilarbeitsunfähigkeit in Deutschland."
+        path="/faq"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="text-xs text-slate-500 mb-6 flex items-center gap-2">

@@ -15,9 +15,16 @@ import Calculator from '../components/Calculator';
 import { DIAGNOSEN_DATA } from '../data/diagnosen';
 import { RATGEBER_ARTICLES } from '../data/ratgeber';
 
+import SeoHead from '../components/SeoHead';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
+      <SeoHead 
+        title="Teilkrankschreibung: Rechtslage, Rechner & Ratgeber"
+        description="Unabhängiges Fachportal zur Teilkrankschreibung, stufenweisen Wiedereingliederung (§ 74 SGB V) und zum hypothetischen Reformmodell."
+        path="/"
+      />
       {/* Editorial Hero Section (Light & High-Contrast) */}
       <section className="bg-white border-b border-slate-200 pt-12 pb-16 relative overflow-hidden">
         {/* Subtle grid background */}
@@ -43,7 +50,7 @@ export default function Home() {
             <p className="text-lg sm:text-xl text-slate-700 leading-relaxed max-w-3xl mb-8">
               Das unabhängige Portal zur Teilarbeitsunfähigkeit in Deutschland. Verstehen Sie das geltende 
               <strong className="text-slate-950 font-bold"> Alles-oder-Nichts-Prinzip</strong>, die stufenweise Wiedereingliederung nach dem 
-              <strong className="text-slate-950 font-bold"> Hamburger Modell (§ 74 SGB V)</strong> und berechnen Sie Ihre Ansprüche im interaktiven Simulator.
+              <strong className="text-slate-950 font-bold"> Hamburger Modell (§ 74 SGB V)</strong> und simulieren Sie hypothetische Reformmodelle im interaktiven Simulator.
             </p>
 
             {/* Hero CTAs */}
@@ -138,7 +145,7 @@ export default function Home() {
                   Volles Krankengeld ab Woche 7
                 </li>
                 <li className="flex items-center gap-2 text-slate-500">
-                  Keine legale Teilarbeit möglich
+                  AU ist kein striktes Arbeitsverbot
                 </li>
               </ul>
             </div>
@@ -167,7 +174,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  Krankengeld oder Übergangsgeld
+                  Krankengeld oder Übergangsgeld (§ 49 SGB V)
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -335,7 +342,7 @@ export default function Home() {
                 <span>Darf ich trotz Krankschreibung ein paar Stunden arbeiten?</span>
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Wer voll krankgeschrieben ist, hat keine Verpflichtung zur Arbeit. Ein eigenmächtiges Arbeiten kann versicherungsrechtliche Risiken bergen und den Anschein erwecken, dass keine Arbeitsunfähigkeit vorliegt. Erlaubt ist Teilarbeit nur im Rahmen eines offiziellen Stufenplans (§ 74 SGB V).
+                Eine Krankschreibung (AU-Bescheinigung) ist grundsätzlich kein Arbeitsverbot. Fühlen Sie sich wieder fit, dürfen Sie nach ärztlicher Rücksprache auch vor Ablauf der AU wieder arbeiten. Ihr Arbeitgeber darf jedoch keine Arbeit von Ihnen verlangen, solange Sie arbeitsunfähig sind. Die stufenweise Wiedereingliederung (§ 74 SGB V) ist ein rechtlich eigenständiges Verfahren zur schrittweisen Rückkehr.
               </p>
             </div>
 

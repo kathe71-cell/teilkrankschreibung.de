@@ -2,10 +2,16 @@ import Calculator from '../components/Calculator';
 import CitationBox from '../components/CitationBox';
 import TrustBox from '../components/TrustBox';
 import { Scale } from 'lucide-react';
+import SeoHead from '../components/SeoHead';
 
 export default function CalculatorPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 py-10">
+      <SeoHead 
+        title="Teilkrankschreibung Rechner: Entgelt & Krankengeld Simulation"
+        description="Hypothetische Simulation des Entgelts und anteiligen Krankengelds bei einer Teilkrankschreibung."
+        path="/rechner"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="text-xs text-slate-500 mb-6 flex items-center gap-2">
@@ -23,7 +29,8 @@ export default function CalculatorPage() {
             Teilkrankschreibungs- &amp; Entgeltrechner
           </h1>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            Berechnen Sie die finanziellen Auswirkungen reduzierter Arbeitsfähigkeit. Ermitteln Sie das Zusammenspiel aus Teillohn des Arbeitgebers und anteiligem Krankengeld nach § 47 SGB V.
+            Simulieren Sie die finanziellen Auswirkungen eines in der Diskussion befindlichen Modells der Teilkrankschreibung.
+            <br/><strong className="text-amber-700">Wichtiger Hinweis:</strong> Es handelt sich hierbei um eine hypothetische Reform-Simulation. Im aktuell geltenden deutschen Recht gibt es dieses Kombinationsmodell (Teillohn plus anteiliges Krankengeld) nicht als bestehenden individuellen Anspruch.
           </p>
         </div>
 
@@ -36,11 +43,11 @@ export default function CalculatorPage() {
             <div className="flex items-center gap-2 mb-2">
               <Scale className="w-5 h-5 text-emerald-600" />
               <h2 className="text-2xl font-black text-slate-900">
-                Methodik und gesetzliche Berechnungsgrundlagen
+                Methodik der hypothetischen Simulation
               </h2>
             </div>
             <p className="text-sm text-slate-600 mb-6">
-              Die Simulation basiert auf den maßgeblichen Bestimmungen des Entgeltfortzahlungsgesetzes sowie des Fünften Buches Sozialgesetzbuch (SGB V).
+              Die Modellrechnung zeigt, wie sich eine gesetzliche Regelung zur Teilarbeitsunfähigkeit auf Basis der aktuellen Bestimmungen des Entgeltfortzahlungsgesetzes sowie des SGB V rechnerisch auswirken <em>könnte</em>.
             </p>
 
             <div className="space-y-6 text-sm text-slate-700">
@@ -49,32 +56,20 @@ export default function CalculatorPage() {
                   1. Phase 1: Die ersten 6 Wochen (Entgeltfortzahlung nach § 3 EntgFG)
                 </h3>
                 <p className="leading-relaxed">
-                  Erkrankt ein Arbeitnehmer, so hat er bis zur Dauer von sechs Wochen Anspruch auf Fortzahlung seines regulären Arbeitsentgelts durch den Arbeitgeber (100 % des Regellohns). In einem hypothetischen Modell der Teilkrankschreibung würde der Arbeitgeber den Lohn für die geleisteten Stunden als reguläres Gehalt vergüten und den Ausfallanteil im Rahmen der Entgeltfortzahlung ausgleichen. Der Arbeitnehmer erhält somit sein gewohntes volles Nettoeinkommen.
+                  Erkrankt ein Arbeitnehmer, so hat er derzeit bis zur Dauer von sechs Wochen Anspruch auf Fortzahlung seines regulären Arbeitsentgelts durch den Arbeitgeber. In einem <em>hypothetischen Reformmodell</em> der Teilkrankschreibung würde der Arbeitgeber den Lohn für die geleisteten Stunden als reguläres Gehalt vergüten und den krankheitsbedingten Ausfallanteil im Rahmen der Entgeltfortzahlung ausgleichen.
                 </p>
               </div>
 
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200">
                 <h3 className="font-bold text-base text-slate-900 mb-1">
-                  2. Phase 2: Ab der 7. Woche (Krankengeldberechnung nach § 47 SGB V)
+                  2. Phase 2: Ab der 7. Woche (Krankengeld-Regularien gem. § 47 SGB V)
                 </h3>
                 <p className="leading-relaxed mb-2">
-                  Nach Ablauf der sechswöchigen Entgeltfortzahlung endet die Lohnfortzahlungspflicht des Arbeitgebers. Gesetzlich Krankenversicherte erhalten Krankengeld von ihrer Krankenkasse:
+                  In der Diskussion um eine Teil-AU wird oft ein anteiliges Krankengeld vorgeschlagen. Die Simulation nutzt die geltenden Berechnungsschritte (70 % des Brutto, max. 90 % des Netto, gedeckelt durch Beitragsbemessungsgrenze), wendet diese jedoch nur auf den prozentual ausgefallenen Arbeitsanteil an.
                 </p>
-                <ul className="list-disc pl-5 space-y-1 text-xs text-slate-600">
-                  <li><strong>70 % des beitragspflichtigen Brutto-Regelentgelts</strong>, höchstens jedoch:</li>
-                  <li><strong>90 % des maßgeblichen Netto-Regelentgelts</strong>.</li>
-                  <li>Gedeckelt durch die kalendertägliche Beitragsbemessungsgrenze der GKV.</li>
-                  <li>Vom Krankengeld werden Beiträge zur Renten-, Pflege- und Arbeitslosenversicherung einbehalten (ca. 12,8 %).</li>
-                </ul>
-              </div>
-
-              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200">
-                <h3 className="font-bold text-base text-slate-900 mb-1">
-                  3. Warum lohnt sich die Teilkrankschreibung finanziell?
-                </h3>
-                <p className="leading-relaxed">
-                  Wer 50 % arbeiten kann, erzielt für diese 50 % sein volles vertragliches Gehalt. Da das Krankengeld für die verbleibenden 50 % nur auf den Ausfallteil berechnet wird, liegt das gesamte monatliche Nettoeinkommen spürbar über dem Bezug von reinem Krankengeld bei 100 % Arbeitsunfähigkeit. Zudem bleibt der Rentenversicherungsbeitrag höher.
-                </p>
+                <div className="mt-2 text-xs text-amber-800 bg-amber-50 p-2 rounded">
+                  <strong>Rechtshinweis:</strong> * Modellrechnung. Ein solches anteiliges Krankengeld zur Kombination mit Teillohn existiert derzeit rechtlich nicht.
+                </div>
               </div>
             </div>
           </div>

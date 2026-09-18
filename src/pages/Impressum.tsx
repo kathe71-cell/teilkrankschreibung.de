@@ -1,8 +1,14 @@
 import { Mail, Phone, MapPin, Scale } from 'lucide-react';
+import SeoHead from '../components/SeoHead';
 
 export default function Impressum() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 py-12">
+      <SeoHead 
+        title="Impressum & Anbieterkennzeichnung | teilkrankschreibung.de"
+        description="Gesetzliche Anbieterkennzeichnung nach § 5 DDG und rechtliche Hinweise zum Portal."
+        path="/impressum"
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="text-xs text-slate-500 mb-6 flex items-center gap-2">
@@ -56,7 +62,7 @@ export default function Impressum() {
                 <p className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Telefon: </span>
-                  <a href="tel:+4917866526230" className="text-emerald-700 hover:text-emerald-800 font-bold">
+                  <a href="tel:+491786652623" className="text-emerald-700 hover:text-emerald-800 font-bold">
                     +49 178 6652623
                   </a>
                 </p>
@@ -87,13 +93,9 @@ export default function Impressum() {
             {/* Verbraucherstreitbeilegung */}
             <section className="border-b border-slate-100 pb-6">
               <h2 className="text-lg font-bold text-slate-950 mb-2">
-                EU-Streitschlichtung &amp; Verbraucherstreitbeilegung
+                Verbraucherstreitbeilegung
               </h2>
               <p className="text-slate-600 text-xs leading-relaxed">
-                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
-                <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-emerald-700 underline ml-1">
-                  https://ec.europa.eu/consumers/odr/
-                </a>.<br />
                 Unsere E-Mail-Adresse finden Sie oben im Impressum. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
               </p>
             </section>

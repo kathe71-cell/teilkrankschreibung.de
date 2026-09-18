@@ -6,11 +6,11 @@ import {
   Check, 
   Code, 
   Printer, 
-  TrendingUp, 
   ShieldAlert, 
   ArrowRight,
   Building2,
-  UserCheck
+  UserCheck,
+  Info
 } from 'lucide-react';
 
 interface CalculatorProps {
@@ -18,7 +18,7 @@ interface CalculatorProps {
 }
 
 export default function Calculator({ isEmbed = false }: CalculatorProps) {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   // Read initial from URL or defaults
   const initialBrutto = Number(searchParams.get('brutto')) || 3800;
@@ -37,16 +37,16 @@ export default function Calculator({ isEmbed = false }: CalculatorProps) {
   const [showEmbedCode, setShowEmbedCode] = useState(false);
   const [copiedEmbed, setCopiedEmbed] = useState(false);
 
-  // Sync back to URL parameters
-  const updateParams = (newBrutto: number, newStunden: number, newProzent: number, newPhase: 'phase1' | 'phase2', newKlasse: number) => {
-    if (isEmbed) return;
-    setSearchParams({
-      brutto: newBrutto.toString(),
-      stunden: newStunden.toString(),
-      prozent: newProzent.toString(),
-      phase: newPhase,
-      klasse: newKlasse.toString(),
-    }, { replace: true });
+  const [showShareModal, setShowShareModal] = useState(false);
+
+  const updateParams = (
+    _b: number,
+    _s: number,
+    _a: number,
+    _p: string,
+    _st: number
+  ) => {
+    // Neutralisiert: Kein automatisches Update der URL bei jedem Tastendruck mehr!
   };
 
   // Realistic tax & social contribution net calculation approximation
@@ -134,14 +134,20 @@ export default function Calculator({ isEmbed = false }: CalculatorProps) {
   }, [brutto, stunden, arbeitsfaehigkeit, phase, steuerklasse]);
 
   const handleShareLink = () => {
+    setShowShareModal(true);
+  };
+
+  const confirmShare = () => {
     const url = `${window.location.origin}/rechner?brutto=${brutto}&stunden=${stunden}&prozent=${arbeitsfaehigkeit}&phase=${phase}&klasse=${steuerklasse}`;
     navigator.clipboard.writeText(url);
     setCopiedLink(true);
-    setTimeout(() => setCopiedLink(false), 2000);
+    setTimeout(() => {
+      setCopiedLink(false);
+      setShowShareModal(false);
+    }, 2000);
   };
 
-  const embedSnippet = `<iframe src="https://teilkrankschreibung.de/rechner-embed?brutto=${brutto}&stunden=${stunden}&prozent=${arbeitsfaehigkeit}&phase=${phase}" width="100%" height="680" frameborder="0" style="border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);max-width:850px;display:block;margin:auto;"></iframe>\n<p style="font-size:12px;color:#64748b;text-align:center;margin-top:8px;">Bereitgestellt von <a href="https://teilkrankschreibung.de/" target="_blank" style="color:#059669;text-decoration:underline;">teilkrankschreibung.de</a></p>`;
-
+  const embedSnippet = `<iframe id="tkr-rechner" src="https://www.teilkrankschreibung.de/rechner-embed?brutto=${brutto}&stunden=${stunden}&prozent=${arbeitsfaehigkeit}&phase=${phase}" width="100%" height="700" frameborder="0" style="border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);max-width:850px;display:block;margin:auto;transition:height 0.2s;" title="Teilkrankschreibung Rechner"></iframe>\n<script>\nwindow.addEventListener("message", function(e) {\n  if (e.origin !== "https://teilkrankschreibung.de" && e.origin !== "https://www.teilkrankschreibung.de") return;\n  var iframe = document.getElementById("tkr-rechner");\n  if (!iframe || e.source !== iframe.contentWindow) return;\n  if (e.data && e.data.type === "resize" && typeof e.data.height === "number" && isFinite(e.data.height) && e.data.height > 0) {\n    iframe.style.height = e.data.height + "px";\n  }\n});\n</script>\n<p style="font-size:12px;color:#64748b;text-align:center;margin-top:8px;">Bereitgestellt von <a href="https://www.teilkrankschreibung.de/" target="_blank" style="color:#059669;text-decoration:underline;">teilkrankschreibung.de</a></p>`;
   const handleCopyEmbed = () => {
     navigator.clipboard.writeText(embedSnippet);
     setCopiedEmbed(true);
@@ -149,7 +155,24 @@ export default function Calculator({ isEmbed = false }: CalculatorProps) {
   };
 
   return (
-    <div className={`bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden ${isEmbed ? 'p-4 sm:p-6' : 'p-6 sm:p-10 my-8'}`}>
+    <div className={`bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden relative ${isEmbed ? 'p-4 sm:p-6' : 'p-6 sm:p-10 my-8'}`}>
+      
+      {showShareModal && (
+        <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white border border-slate-200 shadow-xl rounded-2xl p-6 max-w-sm w-full">
+            <h3 className="text-lg font-bold text-slate-900 mb-2">Ergebnisse teilen</h3>
+            <p className="text-sm text-slate-600 mb-4">
+              Wenn Sie den Link kopieren, werden Ihre aktuellen Eingaben (Gehalt, Arbeitsstunden, Prozent, Phase, Steuerklasse) in der URL gespeichert. Die Daten werden nicht an uns übertragen, sind aber für jeden sichtbar, dem Sie den Link senden.
+            </p>
+            <div className="flex justify-end gap-3">
+              <button onClick={() => setShowShareModal(false)} className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900">Abbrechen</button>
+              <button onClick={confirmShare} className="px-4 py-2 text-sm font-bold bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors">
+                {copiedLink ? 'Kopiert!' : 'Zustimmen & Kopieren'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Title & Toolbar */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200">
         <div>
@@ -166,7 +189,7 @@ export default function Calculator({ isEmbed = false }: CalculatorProps) {
             Teil-AU &amp; Entgeltfortzahlungs-Rechner
           </h2>
           <p className="text-sm text-slate-600 mt-0.5">
-            Simulieren Sie verbleibendes Arbeitseinkommen, Krankengeldanspruch und Netto-Vorteile bei reduzierter Arbeitsfähigkeit.
+            Hypothetische Simulation des verbleibenden Arbeitseinkommens und anteiligen Krankengelds bei reduzierter Arbeitsfähigkeit.
           </p>
         </div>
 
@@ -227,7 +250,15 @@ export default function Calculator({ isEmbed = false }: CalculatorProps) {
       )}
 
       {/* Main Grid: Inputs vs Results */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8">
+      <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-xl flex items-start gap-3">
+        <Info className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+        <div className="text-sm text-amber-900 leading-relaxed">
+          <strong className="block mb-1">Hypothetische Reform-Simulation</strong>
+          Das dargestellte Teil-AU-Kombinationsmodell ist kein bestehender individueller Leistungsanspruch in Deutschland. Diese Simulation verdeutlicht lediglich, wie eine Reform analog zu skandinavischen Vorbildern finanziell wirken könnte.
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-2">
         {/* Left Inputs (5 Cols) */}
         <div className="lg:col-span-5 space-y-6">
           {/* Bruttoeinkommen */}
@@ -444,22 +475,6 @@ export default function Calculator({ isEmbed = false }: CalculatorProps) {
               </div>
             </div>
 
-            {/* Difference / Net Advantage Banner */}
-            {phase === 'phase2' && (
-              <div className="bg-emerald-950/60 border border-emerald-700/60 rounded-2xl p-3.5 flex items-center gap-3 mt-4">
-                <div className="w-9 h-9 rounded-xl bg-emerald-500 text-slate-950 flex items-center justify-center shrink-0">
-                  <TrendingUp className="w-5 h-5" />
-                </div>
-                <div className="text-xs leading-tight">
-                  <span className="font-extrabold text-white text-sm block">
-                    +{results.netAdvantage.toLocaleString('de-DE')} € mehr Netto im Monat
-                  </span>
-                  <span className="text-emerald-200">
-                    gegenüber einer 100 % vollständigen Arbeitsunfähigkeit mit Krankengeldbezug!
-                  </span>
-                </div>
-              </div>
-            )}
           </div>
 
           {/* 3-Column Scenario Comparison */}
@@ -501,10 +516,10 @@ export default function Calculator({ isEmbed = false }: CalculatorProps) {
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800 block">Szenario C</span>
                 <span className="text-sm font-black text-emerald-950 block mt-0.5">{arbeitsfaehigkeit} % Teil-AU</span>
-                <span className="text-xs text-emerald-800 block mt-1">Kombinationsmodell</span>
+                <span className="text-xs text-emerald-800 block mt-1">Hypothetische Reform-Simulation</span>
               </div>
               <div className="mt-4 pt-3 border-t border-emerald-200">
-                <span className="text-xs text-emerald-800 font-bold block">Gesamt-Netto:</span>
+                <span className="text-xs text-emerald-800 font-bold block">Simuliertes Netto:</span>
                 <span className="text-xl font-black text-emerald-900 font-mono">
                   {results.totalPartialNet.toLocaleString('de-DE')} €
                 </span>
@@ -533,7 +548,7 @@ export default function Calculator({ isEmbed = false }: CalculatorProps) {
                 <div className="flex justify-between items-center py-1.5 border-b border-slate-200/80">
                   <span className="text-slate-600 flex items-center gap-2">
                     <ShieldAlert className="w-4 h-4 text-emerald-600" />
-                    Krankenkassen-Anteil für {100 - arbeitsfaehigkeit} % Ausfallzeit
+                    Simulierter Krankenkassen-Anteil für {100 - arbeitsfaehigkeit} % Ausfallzeit
                   </span>
                   <span className="font-bold text-slate-900 font-mono">
                     ca. {results.netKrankengeldPartial.toLocaleString('de-DE')} € Krankengeld (Netto)
@@ -564,7 +579,7 @@ export default function Calculator({ isEmbed = false }: CalculatorProps) {
           <div className="bg-white border border-slate-200 rounded-xl p-4 text-xs text-slate-600 flex items-start gap-3">
             <Building2 className="w-4 h-4 text-slate-700 shrink-0 mt-0.5" />
             <div>
-              <strong className="text-slate-900">Vorteil für den Arbeitgeber:</strong> In Phase 2 zahlt der Arbeitgeber nur die tatsächlich erbrachten {arbeitsfaehigkeit} % Arbeitsleistung ({results.workedGross.toLocaleString('de-DE')} € Brutto). Das Unternehmen behält das Fachwissen im Betrieb und vermeidet eine monatelange vollständige Vakanz.
+              <strong className="text-slate-900">Hypothetischer Vorteil für den Arbeitgeber:</strong> In diesem simulierten Modell zahlt der Arbeitgeber nur die tatsächlich erbrachten {arbeitsfaehigkeit} % Arbeitsleistung ({results.workedGross.toLocaleString('de-DE')} € Brutto). Das Unternehmen behält das Fachwissen im Betrieb und vermeidet eine monatelange vollständige Vakanz.
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ import FaqPage from './pages/FaqPage';
 import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
 
-function Layout() {
+export function Layout() {
   const location = useLocation();
   const isEmbed = location.pathname === '/rechner-embed';
 

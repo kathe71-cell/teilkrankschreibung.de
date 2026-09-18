@@ -1,9 +1,15 @@
 import { ShieldCheck, EyeOff, Server, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SeoHead from '../components/SeoHead';
 
 export default function Datenschutz() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 py-12">
+      <SeoHead 
+        title="Datenschutzerklärung | teilkrankschreibung.de"
+        description="Informationen zum Datenschutz, cookieloser Webanalyse und fehlenden externen CDNs."
+        path="/datenschutz"
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="text-xs text-slate-500 mb-6 flex items-center gap-2">
@@ -18,7 +24,7 @@ export default function Datenschutz() {
               <ShieldCheck className="w-5 h-5" />
             </span>
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">
-              Datenschutz nach DSGVO &amp; TTDSG
+              Datenschutz nach DSGVO &amp; TDDDG
             </span>
           </div>
 
@@ -34,7 +40,7 @@ export default function Datenschutz() {
                 <span>Privacy First: Keine Cookies, kein Werbetracking</span>
               </h2>
               <p className="text-xs sm:text-sm text-emerald-900 leading-relaxed">
-                Der Schutz Ihrer personenbezogenen Daten hat für uns höchste Priorität. Dieses Portal verwendet weder Google Analytics noch Marketing-Tracker noch Tracking-Cookies. Alle Schriften werden lokal ohne externe CDNs ausgeliefert.
+                Der Schutz Ihrer personenbezogenen Daten hat für uns höchste Priorität. Dieses Portal verwendet weder Google Analytics noch Marketing-Tracker noch Tracking-Cookies gemäß TDDDG. Alle Schriften werden lokal ohne externe CDNs ausgeliefert.
               </p>
             </section>
 
@@ -56,23 +62,21 @@ export default function Datenschutz() {
               </div>
             </section>
 
-            {/* Vercel Web Analytics */}
+            {/* Vercel Hosting & Web Analytics */}
             <section className="border-b border-slate-100 pb-6">
               <h2 className="text-lg font-bold text-slate-950 mb-2 flex items-center gap-2">
                 <Server className="w-5 h-5 text-emerald-600" />
-                <span>2. Webanalyse durch Vercel Web Analytics (Cookielos)</span>
+                <span>2. Hosting und Webanalyse durch Vercel</span>
               </h2>
               <p className="text-slate-700 mb-2">
-                Diese Website nutzt <strong>Vercel Web Analytics</strong>, einen Dienst der Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA.
+                Diese Website wird über <strong>Vercel</strong> gehostet und nutzt Vercel Web Analytics, bereitgestellt von Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA.
               </p>
               <p className="text-slate-600 text-xs leading-relaxed mb-3">
-                Vercel Web Analytics erfasst aggregierte Nutzungsdaten (z. B. aufgerufene Seiten, Referrer-URL, Browsertyp, Betriebssystem) zur statistischen Auswertung der Website-Performance.
+                Zum Zweck der Bereitstellung der Website und zur statistischen Auswertung der Performance werden Zugriffsdaten (z. B. aufgerufene Seiten, Referrer-URL, Browsertyp, Betriebssystem) erfasst. Die Datenübertragung in die USA wird auf Grundlage von Standardvertragsklauseln bzw. des Data Privacy Frameworks abgesichert.
               </p>
               <ul className="list-disc pl-5 space-y-1 text-xs text-slate-600">
-                <li><strong>100 % cookielos:</strong> Es werden keinerlei Cookies auf Ihrem Endgerät gespeichert.</li>
-                <li><strong>Keine IP-Speicherung:</strong> IP-Adressen werden unmittelbar nach Empfang anonymisiert und nicht dauerhaft gespeichert.</li>
-                <li><strong>Kein Cross-Site-Tracking:</strong> Ihr Verhalten wird nicht über andere Webseiten hinweg verfolgt.</li>
-                <li><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der fehlerfreien technischen Bereitstellung und Reichweitenmessung).</li>
+                <li><strong>Cookielos:</strong> Vercel Analytics verwendet keine Cookies zur Speicherung von Informationen auf Ihrem Endgerät im Sinne des TDDDG.</li>
+                <li><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technischen Bereitstellung, Sicherheit und Reichweitenmessung).</li>
               </ul>
             </section>
 
@@ -80,10 +84,10 @@ export default function Datenschutz() {
             <section className="border-b border-slate-100 pb-6">
               <h2 className="text-lg font-bold text-slate-950 mb-2 flex items-center gap-2">
                 <Globe className="w-5 h-5 text-emerald-600" />
-                <span>3. 100 % DSGVO-konforme Typografie (Keine Google Fonts CDNs)</span>
+                <span>3. Lokale System-Schriftarten (Kein CDN)</span>
               </h2>
               <p className="text-slate-600 text-xs leading-relaxed">
-                Diese Website bindet keine externen Schriftarten über fremde Server (wie fonts.googleapis.com) ein. Stattdessen nutzen wir das auf Ihrem Endgerät bereits vorinstallierte native System-Schriftarten-Set. Es erfolgt keinerlei Übertragung Ihrer IP-Adresse an externe Font-Provider.
+                Diese Website bindet keine externen Schriftarten über fremde Server (wie Google Fonts) ein. Stattdessen nutzen wir das auf Ihrem Endgerät bereits vorinstallierte native System-Schriftarten-Set, sodass keine Übertragung Ihrer IP-Adresse an externe Font-Provider stattfindet.
               </p>
             </section>
 
