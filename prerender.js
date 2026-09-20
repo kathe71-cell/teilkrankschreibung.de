@@ -15,6 +15,7 @@ const routesToPrerender = [
   { url: "/diagnosen", title: "Diagnosen & Indikationen für Teilkrankschreibung", desc: "Übersicht häufiger ICD-10 Indikationen für stufenweise Wiedereingliederung (Burnout, Depression, Orthopädie, Kardiologie)." },
   { url: "/glossar", title: "Glossar: Fachbegriffe zur Teilkrankschreibung", desc: "Wichtige Begriffe von Arbeitsunfähigkeits-Richtlinie (AU-RL) bis Zuzahlung verständlich erklärt." },
   { url: "/faq", title: "Häufig gestellte Fragen (FAQ) zur Teilkrankschreibung", desc: "Antworten auf die wichtigsten arbeitsrechtlichen und sozialversicherungsrechtlichen Fragen." },
+  { url: "/rechner-embed", title: "Teilkrankschreibung Rechner Widget | teilkrankschreibung.de", desc: "Kostenloses interaktives Rechner-Widget für Wiedereingliederung und Netto-Entgelt zur Einbettung." },
   { url: "/impressum", title: "Impressum | teilkrankschreibung.de", desc: "Impressum und rechtliche Angaben von teilkrankschreibung.de." },
   { url: "/datenschutz", title: "Datenschutzerklärung | teilkrankschreibung.de", desc: "Datenschutzerklärung und DSGVO-Informationen von teilkrankschreibung.de." }
 ];
