@@ -69,16 +69,6 @@ export default function Impressum() {
               </div>
             </section>
 
-            {/* Umsatzsteuer */}
-            <section className="border-b border-slate-100 pb-6">
-              <h2 className="text-lg font-bold text-slate-950 mb-2">
-                Umsatzsteuer
-              </h2>
-              <p className="text-slate-600">
-                Umsatzsteuerbefreit als Kleinunternehmer gemäß § 19 UStG. Es wird keine Umsatzsteuer ausgewiesen.
-              </p>
-            </section>
-
             {/* Redaktionelle Verantwortung */}
             <section className="border-b border-slate-100 pb-6">
               <h2 className="text-lg font-bold text-slate-950 mb-2">

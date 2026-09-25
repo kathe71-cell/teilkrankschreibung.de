@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Calculator, BookOpen, Activity, HelpCircle, FileText, Menu, X, ShieldCheck } from 'lucide-react';
+import { Calculator, BookOpen, Activity, HelpCircle, FileText, Menu, X, ShieldCheck, Search } from 'lucide-react';
+import SearchModal from './SearchModal';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
@@ -31,7 +33,7 @@ export default function Header() {
               </span>
               <span className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase mt-0.5 flex items-center gap-1">
                 <ShieldCheck className="w-3 h-3 text-emerald-600" />
-                Fachportal &amp; Rechner · SGB V
+                Informationsportal &amp; Rechner · SGB V
               </span>
             </div>
           </Link>
@@ -58,8 +60,16 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Desktop Right CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Desktop Right CTA & Search */}
+          <div className="hidden md:flex items-center gap-2">
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-colors border border-slate-200 cursor-pointer"
+              title="Suche öffnen (⌘K)"
+            >
+              <Search className="w-4 h-4 text-emerald-600" />
+              <span className="font-mono bg-white text-slate-500 px-1 py-0.2 rounded border border-slate-300">⌘K</span>
+            </button>
             <Link
               to="/rechner"
               className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-sm shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
@@ -69,8 +79,16 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button (min 48px touch target) */}
-          <div className="flex md:hidden">
+          {/* Mobile Menu & Search Button */}
+          <div className="flex items-center gap-1 md:hidden">
+            <button
+              type="button"
+              onClick={() => setSearchOpen(true)}
+              className="min-w-10 min-h-10 flex items-center justify-center rounded-xl text-slate-700 hover:bg-slate-100"
+              aria-label="Suche öffnen"
+            >
+              <Search className="w-5 h-5 text-emerald-600" />
+            </button>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -87,6 +105,13 @@ export default function Header() {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-2 shadow-lg">
+          <button
+            onClick={() => { setMobileMenuOpen(false); setSearchOpen(true); }}
+            className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-slate-100 text-slate-800 font-semibold text-sm mb-2"
+          >
+            <span className="flex items-center gap-2"><Search className="w-4 h-4 text-emerald-600" /> ICD-10, Paragraph oder Rechner suchen</span>
+            <span className="text-xs bg-white text-slate-500 px-1.5 py-0.5 rounded border border-slate-300 font-mono">⌘K</span>
+          </button>
           {navItems.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.href);
@@ -118,6 +143,9 @@ export default function Header() {
           </div>
         </div>
       )}
+
+      {/* Search Modal */}
+      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }

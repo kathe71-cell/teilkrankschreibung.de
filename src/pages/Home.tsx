@@ -22,7 +22,7 @@ export default function Home() {
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <SeoHead 
         title="Teilkrankschreibung: Rechtslage, Rechner & Ratgeber"
-        description="Unabhängiges Fachportal zur Teilkrankschreibung, stufenweisen Wiedereingliederung (§ 74 SGB V) und zum hypothetischen Reformmodell."
+        description="Unabhängiges Informationsportal zur Teilkrankschreibung, stufenweisen Wiedereingliederung (§ 74 SGB V) und zum hypothetischen Reformmodell."
         path="/"
       />
       {/* Editorial Hero Section (Light & High-Contrast) */}

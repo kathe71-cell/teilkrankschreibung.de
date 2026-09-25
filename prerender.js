@@ -9,7 +9,7 @@ const template = fs.readFileSync(toAbsolute("dist/index.html"), "utf-8");
 const { render } = await import("./dist-ssr/entry-server.js");
 
 const routesToPrerender = [
-  { url: "/", title: "Teilkrankschreibung: Rechtslage, Rechner & Ratgeber 2026", desc: "Unabhängiges Fachportal zur Teilkrankschreibung, stufenweisen Wiedereingliederung (§ 74 SGB V), Entgeltfortzahlung & interaktivem Rechner." },
+  { url: "/", title: "Teilkrankschreibung: Rechtslage, Rechner & Ratgeber 2026", desc: "Unabhängiges Informationsportal zur Teilkrankschreibung, stufenweisen Wiedereingliederung (§ 74 SGB V), Entgeltfortzahlung & interaktivem Rechner." },
   { url: "/rechner", title: "Teilkrankschreibung Rechner: Entgelt, Krankengeld & Arbeitszeit", desc: "Interaktiver Berechnungs-Simulator für stufenweise Wiedereingliederung, Netto-Entgelt, Krankengeld und Übergangsgeld." },
   { url: "/ratgeber", title: "Ratgeber Teilkrankschreibung & Hamburger Modell 2026", desc: "Ausführlicher Leitfaden zu arbeitsrechtlichen Voraussetzungen, Stufenplan, Zustimmung des Arbeitgebers und Fristen." },
   { url: "/diagnosen", title: "Diagnosen & Indikationen für Teilkrankschreibung", desc: "Übersicht häufiger ICD-10 Indikationen für stufenweise Wiedereingliederung (Burnout, Depression, Orthopädie, Kardiologie)." },
