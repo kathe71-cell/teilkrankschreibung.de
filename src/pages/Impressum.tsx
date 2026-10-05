@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Scale } from 'lucide-react';
+import { Mail, MapPin, Scale } from 'lucide-react';
 import SeoHead from '../components/SeoHead';
 
 export default function Impressum() {
@@ -57,13 +57,6 @@ export default function Impressum() {
                   <span>E-Mail: </span>
                   <a href="mailto:jens@kathe.org" className="text-emerald-700 hover:text-emerald-800 font-bold underline">
                     jens@kathe.org
-                  </a>
-                </p>
-                <p className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Telefon: </span>
-                  <a href="tel:+491786652623" className="text-emerald-700 hover:text-emerald-800 font-bold">
-                    +49 178 6652623
                   </a>
                 </p>
               </div>
