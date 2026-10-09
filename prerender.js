@@ -46,3 +46,31 @@ for (const route of routesToPrerender) {
 }
 
 console.log("Prerendering complete!");
+
+// --- Auto-injected Dynamic Sitemap ---
+try {
+  let routeKeys = [];
+  if (Array.isArray(routesToPrerender)) {
+    routeKeys = routesToPrerender.map(r => r.url || r.path);
+  } else {
+    routeKeys = Object.keys(routesToPrerender);
+  }
+
+  const sitemapUrlset = routeKeys
+    .filter(url => url && !url.includes('404') && !url.includes('embed'))
+    .map(url => {
+      let loc = `https://teilkrankschreibung.de${url === '/' ? '' : url}`;
+      let priority = url === '/' ? '1.0' : '0.8';
+      const today = new Date().toISOString().split('T')[0];
+      return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+    }).join('\n');
+
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrlset}\n</urlset>`;
+
+  fs.writeFileSync(toAbsolute('dist/sitemap.xml'), sitemapXml);
+  fs.writeFileSync(toAbsolute('public/sitemap.xml'), sitemapXml);
+  console.log('  - Generated dynamic sitemap.xml for ' + 'teilkrankschreibung.de');
+} catch (e) {
+  console.error('Error generating sitemap:', e.message);
+}
+// -----------------------------------

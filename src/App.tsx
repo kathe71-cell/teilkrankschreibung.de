@@ -1,3 +1,4 @@
+import ProjektuebernahmePage from "./pages/ProjektuebernahmePage.tsx";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -35,7 +36,8 @@ export function Layout() {
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+          <Route path="/projektuebernahme" element={<ProjektuebernahmePage />} />
+</Routes>
       </div>
       {!isEmbed && <Footer />}
       {!isEmbed && <ScrollToTop />}
